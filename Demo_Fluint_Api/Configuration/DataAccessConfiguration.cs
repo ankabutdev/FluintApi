@@ -1,6 +1,7 @@
 ﻿using Demo_Fluint_Api.DataAccess;
 using Demo_Fluint_Api.Interfaces;
 using Demo_Fluint_Api.Service;
+using Demo_Fluint_Api.Services;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json.Serialization;
 
@@ -19,5 +20,6 @@ public static class DataAccessConfiguration
         });
 
         builder.Services.AddScoped<IUserRepository, UserService>();
+        builder.Services.AddScoped<IGroupRepository, GroupService>();
     }
 }

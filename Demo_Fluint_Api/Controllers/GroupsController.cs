@@ -7,11 +7,11 @@ namespace Demo_Fluint_Api.Controllers;
 
 [Route("api/[controller]/[action]")]
 [ApiController]
-public class UsersController : ControllerBase
+public class GroupsController : ControllerBase
 {
-    private readonly IUserRepository _repository;
+    private readonly IGroupRepository _repository;
 
-    public UsersController(IUserRepository repository)
+    public GroupsController(IGroupRepository repository)
     {
         this._repository = repository;
     }
@@ -52,17 +52,14 @@ public class UsersController : ControllerBase
     }
 
     [HttpPost]
-    public async ValueTask<IActionResult> CreateAsync(UserDto dto)
+    public async ValueTask<IActionResult> CreateAsync(GroupDto dto)
     {
         try
         {
-            User user = new User()
+            Group user = new Group()
             {
                 Name = dto.Name,
-                Email = dto.Email,
-                Password = dto.Password,
-                UserName = dto.UserName,
-                GroupId = dto.GroupId,
+                Description = dto.Description
             };
 
             var result = await _repository.CreateAsync(user);
@@ -78,7 +75,7 @@ public class UsersController : ControllerBase
     }
 
     [HttpPut]
-    public async ValueTask<IActionResult> UpdateAsync(int id, UserDto dto)
+    public async ValueTask<IActionResult> UpdateAsync(int id, GroupDto dto)
     {
         try
         {

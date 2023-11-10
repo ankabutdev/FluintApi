@@ -30,5 +30,6 @@ public class UserTypeConfiguration : IEntityTypeConfiguration<User>
 
         builder.Property(x => x.UserName)
        .IsRequired();
+
     }
 }
