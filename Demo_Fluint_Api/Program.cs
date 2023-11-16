@@ -1,7 +1,4 @@
 using Demo_Fluint_Api.Configuration;
-using Demo_Fluint_Api.DataAccess;
-using Microsoft.EntityFrameworkCore;
-using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 

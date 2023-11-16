@@ -3,6 +3,7 @@ using Demo_Fluint_Api.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Demo_Fluint_Api.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231116134058_relationsAdded")]
+    partial class relationsAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -39,7 +42,7 @@ namespace Demo_Fluint_Api.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Authors", (string)null);
+                    b.ToTable("Authors");
                 });
 
             modelBuilder.Entity("Demo_Fluint_Api.Models.Book", b =>
@@ -74,7 +77,7 @@ namespace Demo_Fluint_Api.Migrations
 
                     b.HasIndex("StudentId");
 
-                    b.ToTable("Books", (string)null);
+                    b.ToTable("Books");
                 });
 
             modelBuilder.Entity("Demo_Fluint_Api.Models.Group", b =>
@@ -95,7 +98,7 @@ namespace Demo_Fluint_Api.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Groups", (string)null);
+                    b.ToTable("Groups");
                 });
 
             modelBuilder.Entity("Demo_Fluint_Api.Models.Student", b =>
@@ -120,7 +123,7 @@ namespace Demo_Fluint_Api.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Students", (string)null);
+                    b.ToTable("Students");
                 });
 
             modelBuilder.Entity("Demo_Fluint_Api.Models.User", b =>
@@ -154,7 +157,7 @@ namespace Demo_Fluint_Api.Migrations
 
                     b.HasIndex("GroupId");
 
-                    b.ToTable("Users", (string)null);
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("Demo_Fluint_Api.Models.Book", b =>

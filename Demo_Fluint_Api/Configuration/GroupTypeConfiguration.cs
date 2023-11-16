@@ -14,6 +14,7 @@ public class GroupTypeConfiguration : IEntityTypeConfiguration<Group>
             .UseIdentityColumn();
 
         builder.HasMany(x => x.Users)
-            .WithOne(x => x.Group);
+            .WithOne(x => x.Group)
+            .OnDelete(DeleteBehavior.Cascade);
     }
 }
